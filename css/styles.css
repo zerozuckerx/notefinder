@@ -1,0 +1,15 @@
+button {
+  /* width: 50%; */
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 200px;
+}
+
+.enharmonics_active {
+  background-color: green;
+}

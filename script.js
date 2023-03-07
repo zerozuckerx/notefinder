@@ -38,10 +38,9 @@ function toggleEnharmonics() {
     if(enharmonicsOn) {
     toggleNotes.textContent = "enharmonics off";
     enharmonicsOn = false;
-    console.log(enharmonicsOn);
   } else {
     toggleNotes.textContent = "enharmonics on";
     enharmonicsOn = true;
-    console.log(enharmonicsOn);
     }
+  toggleNotes.classList.toggle("enharmonics_active");
   }
