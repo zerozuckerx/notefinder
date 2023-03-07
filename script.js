@@ -1,19 +1,21 @@
+// *** VARIABLES ***
+const notes = {
+  whole: ["C", "D", "E", "F", "G", "A", "B"],
+  enharmonics: ["C#", "Db", "D#", "Eb", "F#", "Gb", "G#", "Ab", "A#", "Bb"]
+};
+const strings = ["E", "A", "D", "G", "B", "e"];
+var enharmonicsOn = false;
+
+// *** QUERYSELECTORS ***
 const display = document.querySelector(".display");
 const toggleNotes = document.querySelector(".toggleNotes");
 
 // const notes = ["Ab", "A", "A#", "Bb", "B", "Cb", "C", "C#", "Db", "D", "Eb", "E",
 //               "E#", "Fb", "F", "F#", "Gb", "G", "G#"];
 
-const notes = {
-  whole: ["C", "D", "E", "F", "G", "A", "B"],
-  enharmonics: ["C#", "Db", "D#", "Eb", "Fb", "F#", "Gb", "G#", "Ab", "A#", "Bb"]
-};
-const strings = ["E", "A", "D", "G", "B", "e"];
-
-let enharmonics = false;
-
+// *** FUNCTIONS ***
 function randomize() {
-  if(enharmonics === false) {
+  if(!enharmonicsOn) {
     randomNumber1 = Math.floor(Math.random() * notes.whole.length);
     randomNote = notes.whole[randomNumber1];
   } else {
@@ -22,18 +24,21 @@ function randomize() {
     randomNumber1 = Math.floor(Math.random() * allNotes.length);
     randomNote = allNotes[randomNumber1];
   }
-  console.log(randomNote);
   const randomNumber2 = Math.floor(Math.random() * strings.length);
   const randomString = strings[randomNumber2];
   display.textContent = randomNote + " on " + randomString + " string";
 }
 
-function toggleNotes() {
-  if(enharmonics === true) {
-  toggleNotes.innerHTML = "enharmonics off";
-  enharmonics = false;
-} else {
-  toggleNotes.innerHTML = "enharmonics on";
-  enharmonics = true;
+toggleNotes.addEventListener("onclick", toggleEnharmonics);
+
+function toggleEnharmonics() {
+    if(enharmonicsOn) {
+    toggleNotes.textContent = "enharmonics off";
+    enharmonicsOn = false;
+    console.log("enh true");
+  } else {
+    toggleNotes.textContent = "enharmonics on";
+    enharmonicsOn = true;
+    console.log("enh true");
+    }
   }
-}
