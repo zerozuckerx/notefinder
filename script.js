@@ -8,12 +8,15 @@ var enharmonicsOn = false;
 
 // *** QUERYSELECTORS ***
 const display = document.querySelector(".display");
+const randomizer = document.querySelector(".randomizer");
 const toggleNotes = document.querySelector(".toggleNotes");
 
 // const notes = ["Ab", "A", "A#", "Bb", "B", "Cb", "C", "C#", "Db", "D", "Eb", "E",
 //               "E#", "Fb", "F", "F#", "Gb", "G", "G#"];
 
 // *** FUNCTIONS ***
+randomizer.addEventListener("click", randomize);
+
 function randomize() {
   if(!enharmonicsOn) {
     randomNumber1 = Math.floor(Math.random() * notes.whole.length);
@@ -29,16 +32,14 @@ function randomize() {
   display.textContent = randomNote + " on " + randomString + " string";
 }
 
-toggleNotes.addEventListener("onclick", toggleEnharmonics);
+toggleNotes.addEventListener("click", toggleEnharmonics);
 
 function toggleEnharmonics() {
     if(enharmonicsOn) {
     toggleNotes.textContent = "enharmonics off";
     enharmonicsOn = false;
-    console.log("enh true");
   } else {
     toggleNotes.textContent = "enharmonics on";
     enharmonicsOn = true;
-    console.log("enh true");
     }
   }
