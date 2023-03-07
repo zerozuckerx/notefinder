@@ -7,7 +7,7 @@ const strings = ["E", "A", "D", "G", "B", "e"];
 var enharmonicsOn = false;
 
 // *** QUERYSELECTORS ***
-const display = document.querySelector(".display");
+const display = document.querySelector(".text-display");
 const randomizer = document.querySelector(".randomizer");
 const toggleNotes = document.querySelector(".toggleNotes");
 

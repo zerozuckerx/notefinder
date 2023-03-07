@@ -1,3 +1,16 @@
+/*
+font-family: 'Genos', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Solitreo', cursive;
+font-family: 'Tilt Prism', cursive;
+font-family: 'Ubuntu', sans-serif;
+*/
+
+h1 {
+  font-family: 'Tilt Prism', cursive;
+  font-size: 50px;
+}
+
 button {
   border-radius: 5px;
   height: 30px;
@@ -5,12 +18,17 @@ button {
   width: 50%;
 }
 
+.text-display {
+  font-family: 'Genos', sans-serif;
+  font-size: 30px;
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 200px;
+  margin-top: 150px;
 }
 
 .enharmonics_active {
