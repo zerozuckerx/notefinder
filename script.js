@@ -9,14 +9,21 @@ const notes = {
 };
 
 const strings = ["E", "A", "D", "G", "B", "e"];
-const noteSelection = "whole";
+
+const enharmonics = true;
+
 function randomize() {
-  if(noteSelection == "whole") {
-    const randomNumber1 = Math.floor(Math.random() * notes["whole"].length);
-    const randomNote = notes["whole"][randomNumber1];
+  if(enharmonics == false) {
+    const randomNumber1 = Math.floor(Math.random() * notes.whole.length);
+    const randomNote = notes.whole[randomNumber1];
+    console.log(randomNote);
+  } else {
+    const allNotes = notes.whole;
+    notes.enharmonics.forEach(note => allNotes.push(note));
+    console.log(allNotes);
   }
-  const randomNumber2 = Math.floor(Math.random() * strings.length);
-  const randomString = strings[randomNumber2];
-  console.log(`${randomNote} on ${randomString} string`);
-  display.textContent = randomNote + " on " + randomString + " string";
+  // } else if (noteSelection == enharmonics) {
+  //   const allNotes = Array.from(notes.whole)
+  //   const randomNumber2 = Math.floor(Math.random() * strings.length);
+  //   const randomString = strings[randomNumber2];
 }
