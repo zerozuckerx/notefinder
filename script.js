@@ -22,11 +22,11 @@ function randomize() {
     randomNumber1 = Math.floor(Math.random() * notes.whole.length);
     randomNote = notes.whole[randomNumber1];
   } else {
-    allNotes = notes.whole;
-    notes.enharmonics.forEach(note => allNotes.push(note));
+    allNotes = notes.whole.concat(notes.enharmonics);
     randomNumber1 = Math.floor(Math.random() * allNotes.length);
     randomNote = allNotes[randomNumber1];
   }
+  console.log(randomNote);
   const randomNumber2 = Math.floor(Math.random() * strings.length);
   const randomString = strings[randomNumber2];
   display.textContent = randomNote + " on " + randomString + " string";
@@ -38,8 +38,10 @@ function toggleEnharmonics() {
     if(enharmonicsOn) {
     toggleNotes.textContent = "enharmonics off";
     enharmonicsOn = false;
+    console.log(enharmonicsOn);
   } else {
     toggleNotes.textContent = "enharmonics on";
     enharmonicsOn = true;
+    console.log(enharmonicsOn);
     }
   }
