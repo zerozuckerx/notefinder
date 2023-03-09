@@ -6,6 +6,7 @@ const notes = {
 const strings = ["E", "A", "D", "G", "B", "e"];
 let enharmonicsOn = false;
 let isAutorun = false;
+let autorunIntervalID;
 
 // *** QUERYSELECTORS ***
 const display = document.querySelector(".main-display");
@@ -36,15 +37,15 @@ function randomize() {
 autorunButton.addEventListener("click", autorun);
 
 function autorun() {
-  let intervalID;
   if(!isAutorun) {
-    intervalID = window.setInterval(randomize, 2000);
+    autorunIntervalID = setInterval(randomize, 5000);
     isAutorun = true;
+    console.log(autorunIntervalID);
   } else {
-    window.clearInterval(intervalID);
+    window.clearInterval(autorunIntervalID);
     isAutorun = false
   }
-autorunButton.classList.toggle("autorun_active");
+  autorunButton.classList.toggle("autorun_active");
 }
 
 toggleNotes.addEventListener("click", toggleEnharmonics);
@@ -56,6 +57,6 @@ function toggleEnharmonics() {
   } else {
     toggleNotes.textContent = "enharmonics on";
     enharmonicsOn = true;
-    }
-  toggleNotes.classList.toggle("enharmonics_active");
   }
+  toggleNotes.classList.toggle("enharmonics_active");
+}
