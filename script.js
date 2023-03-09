@@ -7,9 +7,10 @@ const strings = ["E", "A", "D", "G", "B", "e"];
 var enharmonicsOn = false;
 
 // *** QUERYSELECTORS ***
-const display = document.querySelector(".text-display");
+const display = document.querySelector(".main-display");
 const randomizer = document.querySelector(".randomizer");
 const toggleNotes = document.querySelector(".toggleNotes");
+const autorunButton = document.querySelector(".autorun");
 
 // const notes = ["Ab", "A", "A#", "Bb", "B", "Cb", "C", "C#", "Db", "D", "Eb", "E",
 //               "E#", "Fb", "F", "F#", "Gb", "G", "G#"];
@@ -26,11 +27,14 @@ function randomize() {
     randomNumber1 = Math.floor(Math.random() * allNotes.length);
     randomNote = allNotes[randomNumber1];
   }
-  console.log(randomNote);
   const randomNumber2 = Math.floor(Math.random() * strings.length);
   const randomString = strings[randomNumber2];
   display.textContent = randomNote + " on " + randomString + " string";
 }
+
+autorunButton.addEventListener("click", () => {
+  console.log("a");
+})
 
 toggleNotes.addEventListener("click", toggleEnharmonics);
 
