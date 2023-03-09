@@ -52,10 +52,10 @@ toggleNotes.addEventListener("click", toggleEnharmonics);
 
 function toggleEnharmonics() {
   if(enharmonicsOn) {
-    toggleNotes.textContent = "enharmonics off";
+    // toggleNotes.textContent = "enharmonics off";
     enharmonicsOn = false;
   } else {
-    toggleNotes.textContent = "enharmonics on";
+    // toggleNotes.textContent = "enharmonics on";
     enharmonicsOn = true;
   }
   toggleNotes.classList.toggle("enharmonics_active");
