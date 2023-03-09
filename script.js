@@ -4,7 +4,8 @@ const notes = {
   enharmonics: ["C#", "Db", "D#", "Eb", "F#", "Gb", "G#", "Ab", "A#", "Bb"]
 };
 const strings = ["E", "A", "D", "G", "B", "e"];
-var enharmonicsOn = false;
+let enharmonicsOn = false;
+let isAutorun = false;
 
 // *** QUERYSELECTORS ***
 const display = document.querySelector(".main-display");
@@ -32,14 +33,24 @@ function randomize() {
   display.textContent = randomNote + " on " + randomString + " string";
 }
 
-autorunButton.addEventListener("click", () => {
-  console.log("a");
-})
+autorunButton.addEventListener("click", autorun);
+
+function autorun() {
+  let intervalID;
+  if(!isAutorun) {
+    intervalID = window.setInterval(randomize, 2000);
+    isAutorun = true;
+  } else {
+    window.clearInterval(intervalID);
+    isAutorun = false
+  }
+autorunButton.classList.toggle("autorun_active");
+}
 
 toggleNotes.addEventListener("click", toggleEnharmonics);
 
 function toggleEnharmonics() {
-    if(enharmonicsOn) {
+  if(enharmonicsOn) {
     toggleNotes.textContent = "enharmonics off";
     enharmonicsOn = false;
   } else {
