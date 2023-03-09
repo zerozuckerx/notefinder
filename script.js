@@ -37,6 +37,7 @@ function randomize() {
 autorunButton.addEventListener("click", autorun);
 
 function autorun() {
+  autorunButton.classList.toggle("autorun_active");
   if(!isAutorun) {
     autorunIntervalID = setInterval(randomize, 5000);
     isAutorun = true;
@@ -45,18 +46,15 @@ function autorun() {
     window.clearInterval(autorunIntervalID);
     isAutorun = false
   }
-  autorunButton.classList.toggle("autorun_active");
 }
 
 toggleNotes.addEventListener("click", toggleEnharmonics);
 
 function toggleEnharmonics() {
+  toggleNotes.classList.toggle("enharmonics_active");
   if(enharmonicsOn) {
-    // toggleNotes.textContent = "enharmonics off";
     enharmonicsOn = false;
   } else {
-    // toggleNotes.textContent = "enharmonics on";
     enharmonicsOn = true;
   }
-  toggleNotes.classList.toggle("enharmonics_active");
 }
