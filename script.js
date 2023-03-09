@@ -39,6 +39,7 @@ autorunButton.addEventListener("click", autorun);
 function autorun() {
   autorunButton.classList.toggle("autorun_active");
   if(!isAutorun) {
+    randomize();
     autorunIntervalID = setInterval(randomize, 5000);
     isAutorun = true;
     console.log(autorunIntervalID);
