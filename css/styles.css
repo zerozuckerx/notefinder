@@ -41,10 +41,6 @@ button {
   width: 25%;
 }
 
-.randomizer {
-  width: 25%;
-}
-
 .toggleNotes {
   width: 66%;
 }
@@ -61,4 +57,10 @@ button {
 .autorun_active {
   background-color: #F08080;
   box-shadow: 3px 3px 5px;
+}
+
+@media only screen and (max-width: 1000px) {
+  button, .buttonwrap {
+    width: 50%;
+  }
 }
