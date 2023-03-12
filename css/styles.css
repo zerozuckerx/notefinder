@@ -4,12 +4,20 @@ font-family: 'Roboto', sans-serif;
 font-family: 'Solitreo', cursive;
 font-family: 'Tilt Prism', cursive;
 font-family: 'Ubuntu', sans-serif;
+font-family: 'Noto Music', sans-serif;
 */
 
+
 h1 {
-  font-family: 'Tilt Prism', cursive;
+  /* font-family: 'Tilt Prism', cursive; */
+  font-family: 'Noto Music', cursive;
   font-size: 55px;
   margin-bottom: 30px;
+}
+
+.notefinder {
+  font-family: 'Noto Music', cursive;
+  font-size: 100px;
 }
 
 button {
@@ -25,7 +33,6 @@ button {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 150px;
 }
 
 .main-display {
