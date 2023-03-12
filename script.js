@@ -89,9 +89,9 @@ function minusSeconds() {
       autorunIntervalID = setInterval(randomize, seconds*1000)
     }
     autorunButton.innerHTML = `auto ${seconds}s`;
-    minusButton.classList.add("minus-plus-active");
-    setTimeout(() => minusButton.classList.remove("minus-plus-active"), 50);
   }
+  minusButton.classList.add("minus-plus-active");
+  setTimeout(() => minusButton.classList.remove("minus-plus-active"), 50);
 };
 
 // *** plus button ***
