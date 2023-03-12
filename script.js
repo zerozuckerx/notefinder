@@ -17,13 +17,10 @@ const autorunButton = document.querySelector(".autorun");
 const minusButton = document.querySelector(".minus");
 const plusButton = document.querySelector(".plus");
 
-// const notes = ["Ab", "A", "A#", "Bb", "B", "Cb", "C", "C#", "Db", "D", "Eb", "E",
-//               "E#", "Fb", "F", "F#", "Gb", "G", "G#"];
-
 // *** FUNCTIONS ***
 randomizer.addEventListener("click", randomize);
 document.addEventListener("keypress", e => {
-  if(e.keyCode === 114) {
+  if(e.keyCode === 114) { //r key
     randomize();
   }
 });
@@ -40,14 +37,16 @@ function randomize() {
   const randomNumber2 = Math.floor(Math.random() * strings.length);
   const randomString = strings[randomNumber2];
   display.textContent = randomNote + " on " + randomString + " string";
-}
+};
 
 toggleNotes.addEventListener("click", toggleEnharmonics);
 document.addEventListener("keypress", e => {
-  if(e.keyCode === 101) {
+  if(e.keyCode === 101) { //e key
     toggleEnharmonics();
+  } else {
+    return
   }
-})
+});
 
 function toggleEnharmonics() {
   if(enharmonicsOn) {
@@ -56,42 +55,61 @@ function toggleEnharmonics() {
     enharmonicsOn = true;
   }
   toggleNotes.classList.toggle("enharmonics_active");
-}
+};
 
 autorunButton.addEventListener("click", autorun);
 document.addEventListener("keypress", function(e) {
-  if(e.keyCode === 32) {
-    autorun();
-  }
   console.log(e.keyCode);
+  e.keyCode === 32 && autorun() //space key
 });
+
 
 function autorun() {
   if(!isAutorun) {
     randomize();
     autorunIntervalID = setInterval(randomize, seconds*1000);
-    isAutorun = true;
   } else {
     window.clearInterval(autorunIntervalID);
-    isAutorun = false
   }
+  isAutorun = !isAutorun;
   autorunButton.classList.toggle("autorun_active");
-}
+};
 
+// *** minus button ***
 minusButton.addEventListener("click", minusSeconds);
+document.addEventListener("keypress", e => {
+  e.keyCode === 45 && minusSeconds() //- key
+});
 
 function minusSeconds() {
   if(seconds > 1) {
+    if(!isAutorun && seconds > 1) {
+      autorun();
+    } else {
+      console.log("ja");
+      window.clearInterval(autorunIntervalID);
+      autorunIntervalID = setInterval(randomize, seconds*1000)
+    }
     seconds -= 1
     autorunButton.innerHTML = `auto ${seconds}s`;
-  } else {
-    return
+    console.log(seconds);
   }
-}
+};
 
+// *** plus button ***
 plusButton.addEventListener("click", plusSeconds);
+document.addEventListener("keypress", e => {
+  e.keyCode === 43 && plusSeconds(); //+ key
+});
 
 function plusSeconds() {
+  if(!isAutorun) {
+    autorun();
+  } else {
+    console.log("ja");
+    window.clearInterval(autorunIntervalID);
+    autorunIntervalID = setInterval(randomize, seconds*1000)
+  }
   seconds += 1
   autorunButton.innerHTML = `auto ${seconds}s`;
-}
+};
