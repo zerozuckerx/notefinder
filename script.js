@@ -41,11 +41,7 @@ function randomize() {
 
 toggleNotes.addEventListener("click", toggleEnharmonics);
 document.addEventListener("keypress", e => {
-  if(e.keyCode === 101) { //e key
-    toggleEnharmonics();
-  } else {
-    return
-  }
+  e.keyCode === 101 && toggleEnharmonics() //e key
 });
 
 function toggleEnharmonics() {
@@ -62,7 +58,6 @@ document.addEventListener("keypress", function(e) {
   console.log(e.keyCode);
   e.keyCode === 32 && autorun() //space key
 });
-
 
 function autorun() {
   if(!isAutorun) {
@@ -83,16 +78,14 @@ document.addEventListener("keypress", e => {
 
 function minusSeconds() {
   if(seconds > 1) {
-    if(!isAutorun && seconds > 1) {
+    seconds -= 1
+    if(!isAutorun) {
       autorun();
     } else {
-      console.log("ja");
       window.clearInterval(autorunIntervalID);
       autorunIntervalID = setInterval(randomize, seconds*1000)
     }
-    seconds -= 1
     autorunButton.innerHTML = `auto ${seconds}s`;
-    console.log(seconds);
   }
 };
 
@@ -103,13 +96,12 @@ document.addEventListener("keypress", e => {
 });
 
 function plusSeconds() {
+  seconds += 1
   if(!isAutorun) {
     autorun();
   } else {
-    console.log("ja");
     window.clearInterval(autorunIntervalID);
     autorunIntervalID = setInterval(randomize, seconds*1000)
   }
-  seconds += 1
   autorunButton.innerHTML = `auto ${seconds}s`;
 };
