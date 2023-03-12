@@ -18,6 +18,10 @@ const minusButton = document.querySelector(".minus");
 const plusButton = document.querySelector(".plus");
 
 // *** FUNCTIONS ***
+document.addEventListener("keypress", function(e) {
+  console.log(e.keyCode) //log key
+});
+
 randomizer.addEventListener("click", randomize);
 document.addEventListener("keypress", e => {
   if(e.keyCode === 114) { //r key
@@ -55,7 +59,6 @@ function toggleEnharmonics() {
 
 autorunButton.addEventListener("click", autorun);
 document.addEventListener("keypress", function(e) {
-  console.log(e.keyCode);
   e.keyCode === 32 && autorun() //space key
 });
 
