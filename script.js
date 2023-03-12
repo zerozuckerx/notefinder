@@ -83,9 +83,15 @@ minusButton.addEventListener("click", minusSeconds);
 function minusSeconds() {
   if(seconds > 1) {
     seconds -= 1
-    autorun();
     autorunButton.innerHTML = `auto ${seconds}s`;
   } else {
     return
   }
+}
+
+plusButton.addEventListener("click", plusSeconds);
+
+function plusSeconds() {
+  seconds += 1
+  autorunButton.innerHTML = `auto ${seconds}s`;
 }
