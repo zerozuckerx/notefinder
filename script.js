@@ -19,6 +19,12 @@ const autorunButton = document.querySelector(".autorun");
 
 // *** FUNCTIONS ***
 randomizer.addEventListener("click", randomize);
+document.addEventListener("keypress", function(e) {
+  console.log(e.keyCode);
+  if(e.keyCode === 32) {
+    autorun;
+  }
+});
 
 function randomize() {
   if(!enharmonicsOn) {
@@ -42,7 +48,6 @@ function autorun() {
     randomize();
     autorunIntervalID = setInterval(randomize, 5000);
     isAutorun = true;
-    console.log(autorunIntervalID);
   } else {
     window.clearInterval(autorunIntervalID);
     isAutorun = false
