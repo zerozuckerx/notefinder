@@ -19,10 +19,9 @@ const autorunButton = document.querySelector(".autorun");
 
 // *** FUNCTIONS ***
 randomizer.addEventListener("click", randomize);
-document.addEventListener("keypress", function(e) {
-  console.log(e.keyCode);
-  if(e.keyCode === 32) {
-    autorun;
+document.addEventListener("keypress", e => {
+  if(e.keyCode === 114) {
+    randomize();
   }
 });
 
@@ -41,6 +40,12 @@ function randomize() {
 }
 
 autorunButton.addEventListener("click", autorun);
+document.addEventListener("keypress", function(e) {
+  console.log(e.keyCode);
+  if(e.keyCode === 32) {
+    autorun();
+  }
+});
 
 function autorun() {
   autorunButton.classList.toggle("autorun_active");
@@ -55,6 +60,11 @@ function autorun() {
 }
 
 toggleNotes.addEventListener("click", toggleEnharmonics);
+document.addEventListener("keypress", e => {
+  if(e.keyCode === 101) {
+    toggleEnharmonics();
+  }
+})
 
 function toggleEnharmonics() {
   toggleNotes.classList.toggle("enharmonics_active");
