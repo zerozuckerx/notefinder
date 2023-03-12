@@ -42,7 +42,6 @@ function randomize() {
   display.textContent = randomNote + " on " + randomString + " string";
 }
 
-
 toggleNotes.addEventListener("click", toggleEnharmonics);
 document.addEventListener("keypress", e => {
   if(e.keyCode === 101) {
@@ -51,12 +50,12 @@ document.addEventListener("keypress", e => {
 })
 
 function toggleEnharmonics() {
-  toggleNotes.classList.toggle("enharmonics_active");
   if(enharmonicsOn) {
     enharmonicsOn = false;
   } else {
     enharmonicsOn = true;
   }
+  toggleNotes.classList.toggle("enharmonics_active");
 }
 
 autorunButton.addEventListener("click", autorun);
@@ -68,22 +67,23 @@ document.addEventListener("keypress", function(e) {
 });
 
 function autorun() {
-  autorunButton.classList.toggle("autorun_active");
   if(!isAutorun) {
     randomize();
-    autorunIntervalID = setInterval(randomize, 5000);
+    autorunIntervalID = setInterval(randomize, seconds*1000);
     isAutorun = true;
   } else {
     window.clearInterval(autorunIntervalID);
     isAutorun = false
   }
+  autorunButton.classList.toggle("autorun_active");
 }
 
-minusButton.addEventListener("click", minusTime);
+minusButton.addEventListener("click", minusSeconds);
 
-function minusTime() {
+function minusSeconds() {
   if(seconds > 1) {
     seconds -= 1
+    autorun();
     autorunButton.innerHTML = `auto ${seconds}s`;
   } else {
     return

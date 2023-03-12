@@ -18,7 +18,6 @@ button {
   font-size: 15px;
   height: 33px;
   margin-top: 10px;
-  width: 25%;
 }
 
 .wrapper {
@@ -35,10 +34,22 @@ button {
   margin-bottom: 10px;
 }
 
+.wide-btn, .buttonwrap {
+  width: 25%;
+}
+
 .buttonwrap {
   display: flex;
   justify-content: space-between;
   gap: 10px;
+}
+
+.autorun {
+  flex-grow: 5;
+}
+
+.minus, .plus {
+  flex-grow: 1;
 }
 
 .enharmonics_active {
@@ -52,7 +63,7 @@ button {
 }
 
 @media only screen and (max-width: 800px) {
-  button, .buttonwrap{
+  .buttonwrap, .wide-btn {
     width: 50%;
   }
 }
