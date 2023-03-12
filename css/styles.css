@@ -7,17 +7,21 @@ font-family: 'Ubuntu', sans-serif;
 font-family: 'Noto Music', sans-serif;
 */
 
+@font-face {
+  font-family: "Metdemo";
+  src: url("./fonts/Metdemo/Metdemo-BLMG.ttf") format("ttf")
+}
 
 h1 {
-  /* font-family: 'Tilt Prism', cursive; */
-  font-family: 'Noto Music', cursive;
+  font-family: 'Tilt Prism', cursive;
+  /* font-family: 'Noto Music', cursive; */
   font-size: 55px;
   margin-bottom: 30px;
 }
 
 .notefinder {
-  font-family: 'Noto Music', cursive;
-  font-size: 100px;
+  font-family: 'Metfinder', cursive;
+  font-size: 50px;
 }
 
 button {
@@ -33,6 +37,7 @@ button {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 100px;
 }
 
 .main-display {
