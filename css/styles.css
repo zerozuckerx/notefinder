@@ -38,15 +38,7 @@ button {
 .buttonwrap {
   display: flex;
   justify-content: space-between;
-  width: 25%;
-}
-
-.toggleNotes {
-  width: 66%;
-}
-
-.autorun {
-  width: 31%;
+  gap: 10px;
 }
 
 .enharmonics_active {
@@ -59,8 +51,8 @@ button {
   box-shadow: 3px 3px 5px;
 }
 
-@media only screen and (max-width: 1000px) {
-  button, .buttonwrap {
+@media only screen and (max-width: 800px) {
+  button, .buttonwrap{
     width: 50%;
   }
 }

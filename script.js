@@ -41,7 +41,6 @@ function randomize() {
 
 autorunButton.addEventListener("click", autorun);
 document.addEventListener("keypress", function(e) {
-  console.log(e.keyCode);
   if(e.keyCode === 32) {
     autorun();
   }
