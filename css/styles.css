@@ -52,12 +52,16 @@ button {
   flex-grow: 1;
 }
 
-.enharmonics_active {
+.minus-plus-active {
+  box-shadow: 0px 0px 10px;
+}
+
+.enharmonics-active {
   background-color: lightgreen;
   box-shadow: 3px 3px 5px;
 }
 
-.autorun_active {
+.autorun-active {
   background-color: #F08080;
   box-shadow: 3px 3px 5px;
 }

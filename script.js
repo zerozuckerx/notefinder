@@ -50,7 +50,7 @@ function toggleEnharmonics() {
   } else {
     enharmonicsOn = true;
   }
-  toggleNotes.classList.toggle("enharmonics_active");
+  toggleNotes.classList.toggle("enharmonics-active");
 };
 
 autorunButton.addEventListener("click", autorun);
@@ -67,13 +67,13 @@ function autorun() {
     window.clearInterval(autorunIntervalID);
   }
   isAutorun = !isAutorun;
-  autorunButton.classList.toggle("autorun_active");
+  autorunButton.classList.toggle("autorun-active");
 };
 
 // *** minus button ***
 minusButton.addEventListener("click", minusSeconds);
 document.addEventListener("keypress", e => {
-  e.keyCode === 45 && minusSeconds() //- key
+  e.keyCode === 45  && minusSeconds(); //- key
 });
 
 function minusSeconds() {
@@ -86,6 +86,8 @@ function minusSeconds() {
       autorunIntervalID = setInterval(randomize, seconds*1000)
     }
     autorunButton.innerHTML = `auto ${seconds}s`;
+    minusButton.classList.add("minus-plus-active");
+    setTimeout(() => minusButton.classList.remove("minus-plus-active"), 50);
   }
 };
 
@@ -104,4 +106,6 @@ function plusSeconds() {
     autorunIntervalID = setInterval(randomize, seconds*1000)
   }
   autorunButton.innerHTML = `auto ${seconds}s`;
+  plusButton.classList.add("minus-plus-active");
+  setTimeout(() => plusButton.classList.remove("minus-plus-active"), 80);
 };
