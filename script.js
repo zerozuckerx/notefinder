@@ -79,12 +79,25 @@ document.addEventListener("keypress", e => {
   e.keyCode === 45  && minusSeconds(); //- key
 });
 
+// function minusSeconds() {
+//   if(seconds > 1) {
+//     seconds -= 1
+//     if(!isAutorun) {
+//       autorun();
+//     } else {
+//       window.clearInterval(autorunIntervalID);
+//       autorunIntervalID = setInterval(randomize, seconds*1000)
+//     }
+//     autorunButton.innerHTML = `auto ${seconds}s`;
+//   }
+//   minusButton.classList.add("minus-plus-active");
+//   setTimeout(() => minusButton.classList.remove("minus-plus-active"), 50);
+// };
+
 function minusSeconds() {
   if(seconds > 1) {
     seconds -= 1
-    if(!isAutorun) {
-      autorun();
-    } else {
+    if(isAutorun) {
       window.clearInterval(autorunIntervalID);
       autorunIntervalID = setInterval(randomize, seconds*1000)
     }
