@@ -115,9 +115,7 @@ document.addEventListener("keypress", e => {
 
 function plusSeconds() {
   seconds += 1
-  if(!isAutorun) {
-    autorun();
-  } else {
+  if(isAutorun) {
     window.clearInterval(autorunIntervalID);
     autorunIntervalID = setInterval(randomize, seconds*1000)
   }
