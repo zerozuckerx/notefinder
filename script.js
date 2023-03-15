@@ -11,7 +11,7 @@ let seconds = 5;
 
 // *** QUERYSELECTORS ***
 const display = document.querySelector(".main-display");
-const randomizer = document.querySelector(".randomizer");
+const randomizerButton = document.querySelector(".randomizer");
 const toggleNotes = document.querySelector(".toggleNotes");
 const autorunButton = document.querySelector(".autorun");
 const minusButton = document.querySelector(".minus");
@@ -22,11 +22,13 @@ document.addEventListener("keypress", function(e) {
   console.log(e.keyCode) //log key
 });
 
-randomizer.addEventListener("click", randomize);
+randomizerButton.addEventListener("click", randomize);
 document.addEventListener("keypress", e => {
   if(e.keyCode === 114) { //r key
     randomize();
-  }
+    randomizerButton.classList.add("button-clicked");
+    setTimeout(() => randomizerButton.classList.remove("button-clicked"), 50);
+  };
 });
 
 function randomize() {
@@ -79,32 +81,17 @@ document.addEventListener("keypress", e => {
   e.keyCode === 45  && minusSeconds(); //- key
 });
 
-// function minusSeconds() {
-//   if(seconds > 1) {
-//     seconds -= 1
-//     if(!isAutorun) {
-//       autorun();
-//     } else {
-//       window.clearInterval(autorunIntervalID);
-//       autorunIntervalID = setInterval(randomize, seconds*1000)
-//     }
-//     autorunButton.innerHTML = `auto ${seconds}s`;
-//   }
-//   minusButton.classList.add("minus-plus-active");
-//   setTimeout(() => minusButton.classList.remove("minus-plus-active"), 50);
-// };
-
 function minusSeconds() {
   if(seconds > 1) {
     seconds -= 1
+    autorunButton.innerHTML = `auto ${seconds}s`;
     if(isAutorun) {
       window.clearInterval(autorunIntervalID);
       autorunIntervalID = setInterval(randomize, seconds*1000)
     }
-    autorunButton.innerHTML = `auto ${seconds}s`;
   }
-  minusButton.classList.add("minus-plus-active");
-  setTimeout(() => minusButton.classList.remove("minus-plus-active"), 50);
+  minusButton.classList.add("button-clicked");
+  setTimeout(() => minusButton.classList.remove("button-clicked"), 50);
 };
 
 // *** plus button ***
@@ -120,6 +107,6 @@ function plusSeconds() {
     autorunIntervalID = setInterval(randomize, seconds*1000)
   }
   autorunButton.innerHTML = `auto ${seconds}s`;
-  plusButton.classList.add("minus-plus-active");
-  setTimeout(() => plusButton.classList.remove("minus-plus-active"), 80);
+  plusButton.classList.add("button-clicked");
+  setTimeout(() => plusButton.classList.remove("button-clicked"), 80);
 };
