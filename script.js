@@ -69,7 +69,7 @@ function autorun() {
     randomize();
     autorunIntervalID = setInterval(randomize, seconds*1000);
   } else {
-    window.clearInterval(autorunIntervalID);
+    clearInterval(autorunIntervalID);
   }
   isAutorun = !isAutorun;
   autorunButton.classList.toggle("autorun-active");
@@ -86,7 +86,7 @@ function minusSeconds() {
     seconds -= 1
     autorunButton.innerHTML = `auto ${seconds}s`;
     if(isAutorun) {
-      window.clearInterval(autorunIntervalID);
+      clearInterval(autorunIntervalID);
       autorunIntervalID = setInterval(randomize, seconds*1000)
     }
   }
@@ -103,7 +103,7 @@ document.addEventListener("keypress", e => {
 function plusSeconds() {
   seconds += 1
   if(isAutorun) {
-    window.clearInterval(autorunIntervalID);
+    clearInterval(autorunIntervalID);
     autorunIntervalID = setInterval(randomize, seconds*1000)
   }
   autorunButton.innerHTML = `auto ${seconds}s`;
