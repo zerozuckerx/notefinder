@@ -30,11 +30,6 @@ document.addEventListener("keypress", e => {
   };
 });
 
-function buttonAnimation(buttonName) {
-  buttonName.classList.add("button-clicked");
-  setTimeout(() => buttonName.classList.remove("button-clicked"), 50);
-}
-
 function randomize() {
   if(!enharmonicsOn) {
     randomNumber1 = Math.floor(Math.random() * notes.whole.length);
@@ -47,10 +42,16 @@ function randomize() {
   const randomNumber2 = Math.floor(Math.random() * strings.length);
   const randomString = strings[randomNumber2];
   display.textContent = randomNote + " on " + randomString + " string";
-  };
-  toggleNotes.addEventListener("click", toggleEnharmonics);
-  document.addEventListener("keypress", e => {
-    e.keyCode === 101 && toggleEnharmonics() //e key
+};
+
+function buttonAnimation(buttonName) {
+  buttonName.classList.add("button-clicked");
+  setTimeout(() => buttonName.classList.remove("button-clicked"), 50);
+}
+
+toggleNotes.addEventListener("click", toggleEnharmonics);
+document.addEventListener("keypress", e => {
+  e.keyCode === 101 && toggleEnharmonics() //e key
 });
 
 function toggleEnharmonics() {
@@ -78,7 +79,7 @@ function autorun() {
   autorunButton.classList.toggle("autorun-active");
 };
 
-// *** minus button ***
+// *** MINUS BUTTON ***
 minusButton.addEventListener("click", minusSeconds);
 document.addEventListener("keypress", e => {
   e.keyCode === 45  && minusSeconds(); //- key
@@ -96,7 +97,7 @@ function minusSeconds() {
   buttonAnimation(minusButton);
 };
 
-// *** plus button ***
+// *** PLUS BUTTON ***
 plusButton.addEventListener("click", plusSeconds);
 document.addEventListener("keypress", e => {
   e.keyCode === 43 && plusSeconds(); //+ key
