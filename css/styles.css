@@ -14,14 +14,8 @@ font-family: 'Noto Music', sans-serif;
 
 h1 {
   font-family: 'Tilt Prism', cursive;
-  /* font-family: 'Noto Music', cursive; */
   font-size: 55px;
   margin-bottom: 30px;
-}
-
-.notefinder {
-  font-family: 'Metfinder', cursive;
-  font-size: 50px;
 }
 
 button {
